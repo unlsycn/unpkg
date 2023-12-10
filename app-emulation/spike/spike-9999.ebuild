@@ -3,20 +3,20 @@
 
 EAPI=8
 
-inherit git-r3
-
-DESCRIPTION="Spike is RISC-V ISA Simulator"
+DESCRIPTION="The RISC-V ISA Simulator"
 HOMEPAGE="https://github.com/riscv-software-src/riscv-isa-sim"
+
 LICENSE="BSD"
-SLOT="0"
+SLOT="0/${PV}"
+IUSE=""
 
 if [[ ${PV} == 9999 ]]; then
-    inherit git-r3
-    EGIT_REPO_URI="https://github.com/riscv-software-src/riscv-isa-sim.git"
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/riscv-software-src/riscv-isa-sim.git"
 else
-    SRC_URI="https://github.com/riscv-software-src/riscv-isa-sim/archive/${COMMIT}.tar.gz"
-    S="${WORKDIR}/${PN}-${PN}-v${PV}"
-    KEYWORDS="~amd64"
+	SRC_URI="https://github.com/riscv-software-src/riscv-isa-sim/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}-${COMMIT}"
+	KEYWORDS="~amd64"
 fi
 
 DEPEND="sys-apps/dtc"
@@ -24,7 +24,7 @@ RDEPEND="${DEPEND}"
 BDEPEND=""
 
 src_prepare() {
-    default
+	default
 
-    sed -i -e "/install_libs_dir/s:/lib:/$(get_libdir)/spike:g" Makefile.in || die
+	sed -i -e "/install_libs_dir/s:/lib:/$(get_libdir)/spike:g" Makefile.in || die
 }
