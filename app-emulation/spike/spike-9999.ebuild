@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit git-r3 autotools multilib
+inherit git-r3
 
 DESCRIPTION="Spike is RISC-V ISA Simulator"
 HOMEPAGE="https://github.com/riscv-software-src/riscv-isa-sim"
@@ -22,3 +22,9 @@ fi
 DEPEND=""
 RDEPEND="${DEPEND}"
 BDEPEND=""
+
+src_prepare() {
+	default
+	sed -i -e "/install_libs_dir/s:/lib:/$(get_libdir):g" Makefile.in || die
+	eautoreconf
+}
