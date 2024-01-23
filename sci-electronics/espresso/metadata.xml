@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>unlsycn@unlsycn.com</email>
+		<name>unlsycn</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">chipsalliance/espresso</remote-id>
+	</upstream>
+	<longdescription lang="en">
+      Espresso is a Multi-valued PLA minimization.
+      Originally from https://ptolemy.berkeley.edu/projects/embedded/pubs/downloads/espresso/
+	</longdescription>
+</pkgmetadata>
