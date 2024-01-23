@@ -4,15 +4,12 @@
 EAPI="8"
 
 inherit cmake
-inherit flag-o-matic
 
 DESCRIPTION="Espresso is a Multi-valued PLA minimization."
 HOMEPAGE="https://github.com/chipsalliance/espresso"
 
 LICENSE="UNKNOWN"
 SLOT="0/${PV}"
-
-CMAKE_MAKEFILE_GENERATOR=emake
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -23,4 +20,3 @@ else
 fi
 
 BDEPEND="dev-ruby/asciidoctor"
-
