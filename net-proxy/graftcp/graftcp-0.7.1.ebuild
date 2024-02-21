@@ -31,6 +31,7 @@ BDEPEND="
 PATCHES="
 	${FILESDIR}/0001-build-not-enabling-service-in-install_systemd.patch
 	${FILESDIR}/0002-build-no-longer-strip-symbols.patch
+	${FILESDIR}/0003-version-v0.7.patch
 "
 
 MAKEOPTS="${MAKEOPTS} -j1"
