@@ -2,7 +2,7 @@
 Name=VSCode
 Comment=Editing evolved
 GenericName=Code Editor
-Exec=/usr/bin/vscode @exec_extra_flags@ --unity-launch %F
+Exec=/usr/bin/vscode-insiders @exec_extra_flags@ --unity-launch %F
 Icon=vscode
 Type=Application
 StartupNotify=false
@@ -10,9 +10,9 @@ StartupWMClass=Code
 Categories=Utility;TextEditor;Development;IDE;
 MimeType=text/plain;inode/directory;application/x-code-workspace;
 Actions=new-empty-window;
-Keywords=vscode;code;
+Keywords=vscode-insiders;vscode;code;
 
 [Desktop Action new-empty-window]
 Name=New Empty Window
-Exec=/usr/bin/vscode @exec_extra_flags@ --new-window %F
+Exec=/usr/bin/vscode-insiders @exec_extra_flags@ --new-window %F
 Icon=vscode
