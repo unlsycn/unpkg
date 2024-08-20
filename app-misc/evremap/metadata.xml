@@ -1,0 +1,9 @@
+<pkgmetadata>
+  <maintainer type="person">
+    <email>unlsycn@unlsycn.com</email>
+    <name>unlsycn</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">wez/evremap</remote-id>
+  </upstream>
+</pkgmetadata>
