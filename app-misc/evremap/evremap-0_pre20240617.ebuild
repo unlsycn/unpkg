@@ -64,7 +64,7 @@ CRATES="
 	winnow@0.6.13
 "
 
-inherit cargo
+inherit cargo systemd
 
 DESCRIPTION="A keyboard input remapper for Linux/Wayland systems"
 HOMEPAGE="https://github.com/wez/evremap"
@@ -78,10 +78,20 @@ LICENSE="Apache-2.0 MIT Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
 
+IUSE="systemd"
+DEPEND="systemd? ( sys-apps/systemd )"
+
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 src_unpack() {
 	cargo_src_unpack
-	rm "${WORKDIR}/${P}" -r || die
-	mv "${WORKDIR}/${PN}-${VERSION_COMMIT}" "${WORKDIR}/${P}" || die
+	rm "${S}" -r || die
+	mv "${WORKDIR}/${PN}-${VERSION_COMMIT}" "${S}" || die
+}
+
+src_install() {
+	cargo_src_install
+	if use systemd; then
+		systemd_newunit "${S}/${PN}.service" "${PN}.service"
+	fi
 }
